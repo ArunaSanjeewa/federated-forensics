@@ -1,0 +1,11 @@
+defaults: base
+
+condition:
+  id: B1
+  name: Local-only
+  description: >
+    Each agency trains independently on its own data. No federation, no
+    aggregation. Lower-bound baseline: quantifies the benefit of collaboration.
+  federation: none
+  uses_restricted_data: true
+  policy_gate: inactive

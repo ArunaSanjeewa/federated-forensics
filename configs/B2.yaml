@@ -1,0 +1,12 @@
+defaults: base
+
+condition:
+  id: B2
+  name: Flat FL, unrestricted
+  description: >
+    All four agencies participate in one flat federated learning process.
+    Both GLOBAL and REGIONAL_ONLY data contribute to every update. Upper-bound
+    collaborative utility; NOT the legally constrained scenario.
+  federation: flat
+  uses_restricted_data: true
+  policy_gate: inactive

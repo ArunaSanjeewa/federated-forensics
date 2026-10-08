@@ -1,0 +1,47 @@
+experiment:
+  name: federated_forensics_2_bodmas
+  task: malware_family_classification
+  notes: >
+    Controlled malware-family classification workload (BODMAS: Yang et al.,
+    "BODMAS: An Open Dataset for Learning based Temporal Analysis of PE
+    Malware", 2021), used as an analogue for jurisdiction-restricted
+    investigative material with different propagation policies. It is not a
+    claim about any real investigation or casework.
+
+model:
+  backend: hf
+  hidden_dims: [256, 64]
+  dropout: 0.1
+  device: auto
+
+train:
+  learning_rate: 1.0e-3
+  batch_size: 32
+  local_epochs: 3
+  max_grad_norm: 1.0
+  optimizer: adamw
+
+eval:
+  primary_metric: f1_macro
+
+federated:
+  num_rounds: 5
+  aggregation: fedavg
+  seeds: [42, 43, 44, 45, 46]
+  return_path_blend: equal
+
+data:
+  source: bodmas
+  raw_dir: data/bodmas_raw
+  data_seed: 42
+  split_per_seed: true
+  agency_budget_per_class: 400
+  train_per_class: 300
+  test_per_class: 100
+  global_families: [wacatac, dinwod, sfone, mira, wabot, berbew]
+  restricted_families: [gepys, sillyp2p]
+
+policy:
+  scopes: [GLOBAL, REGIONAL_ONLY]
+  restricted_region: R1
+  restricted_agencies: [A1, A2]

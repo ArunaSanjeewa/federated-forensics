@@ -1,0 +1,17 @@
+defaults: base
+
+condition:
+  id: B4
+  name: Hierarchical policy-aware FL
+  description: >
+    The proposed architecture. Three layers: local agencies, regional
+    coordinators, one national coordinator. A1/A2 produce two separate update
+    streams (Option A): U_global and U_regional. The regional policy gate
+    INCLUDEs GLOBAL contributions and EXCLUDEs REGIONAL_ONLY contributions at
+    the regional -> national boundary. Return path is National -> Regional ->
+    Local; Region 1's REGIONAL_ONLY knowledge is retained in the model
+    delivered to A1/A2.
+  federation: hierarchical
+  option: A
+  uses_restricted_data: true
+  policy_gate: active

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+data/bodmas_raw/
+results/raw/
+results/*.csv
+results/*.json
+results/figures/
+.DS_Store

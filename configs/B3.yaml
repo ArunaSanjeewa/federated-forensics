@@ -1,0 +1,13 @@
+defaults: base
+
+condition:
+  id: B3
+  name: Flat FL, restricted material excluded
+  description: >
+    Flat federated learning, but A1 and A2 drop their REGIONAL_ONLY records
+    from training entirely. Represents what an agency must do today when a
+    jurisdictional restriction applies and the only topology available is flat.
+    This is the primary baseline for comparison with B4.
+  federation: flat
+  uses_restricted_data: false
+  policy_gate: inactive
